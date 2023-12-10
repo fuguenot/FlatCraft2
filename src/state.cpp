@@ -24,10 +24,10 @@ fc2::State::State() : player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0.5, 0) {
                            SDL_GetError());
 
     player.renderer.load_textures(rend);
-    if (!(spritesheet = IMG_LoadTexture(rend, "resources/spritesheet.png")))
+    if (!(spritesheet = IMG_LoadTexture(rend, "../Resources/spritesheet.png")))
         throw error::Error(error::ErrorType::IMG_LOAD_ERROR, IMG_GetError());
 
-    blocks.insert_or_assign(std::pair{0, 0},
+    blocks.insert_or_assign(std::pair{0, -1},
                             block::Block{block::Block::Type::STONE});
 }
 

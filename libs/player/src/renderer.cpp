@@ -20,13 +20,13 @@ player::Renderer::~Renderer() noexcept {
 }
 
 void player::Renderer::load_textures(SDL_Renderer *rend) {
-    if (!(head_tex = IMG_LoadTexture(rend, "resources/steve_head.png")))
+    if (!(head_tex = IMG_LoadTexture(rend, "../Resources/steve_head.png")))
         throw error::Error(error::ErrorType::IMG_LOAD_ERROR, IMG_GetError());
-    if (!(arm_tex = IMG_LoadTexture(rend, "resources/steve_arms.png")))
+    if (!(arm_tex = IMG_LoadTexture(rend, "../Resources/steve_arms.png")))
         throw error::Error(error::ErrorType::IMG_LOAD_ERROR, IMG_GetError());
-    if (!(torso_tex = IMG_LoadTexture(rend, "resources/steve_torso.png")))
+    if (!(torso_tex = IMG_LoadTexture(rend, "../Resources/steve_torso.png")))
         throw error::Error(error::ErrorType::IMG_LOAD_ERROR, IMG_GetError());
-    if (!(leg_tex = IMG_LoadTexture(rend, "resources/steve_legs.png")))
+    if (!(leg_tex = IMG_LoadTexture(rend, "../Resources/steve_legs.png")))
         throw error::Error(error::ErrorType::IMG_LOAD_ERROR, IMG_GetError());
 }
 

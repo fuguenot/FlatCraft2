@@ -9,14 +9,14 @@ void fc2::State::render() {
     const auto &[px, py] = player.get_pos();
 
     for (const auto &[pos, block] : blocks) {
-        block.render(
-            spritesheet,
-            rend,
-            static_cast<std::int16_t>(pos.first - px * 16 * block::Block::SCALE)
-                + SCREEN_WIDTH / 2,
-            static_cast<std::int16_t>(pos.second
-                                      - py * 16 * block::Block::SCALE)
-                + SCREEN_HEIGHT / 2);
+        block.render(spritesheet,
+                     rend,
+                     static_cast<std::int16_t>((pos.first - px) * 16
+                                               * block::Block::SCALE)
+                         + SCREEN_WIDTH / 2,
+                     static_cast<std::int16_t>((pos.second - py) * 16
+                                               * block::Block::SCALE)
+                         + SCREEN_HEIGHT / 2);
     }
 
     player.renderer.render(rend);

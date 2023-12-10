@@ -5,46 +5,45 @@ project(flatcraft2 VERSION 0.1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
-include(FetchContent)
+find_package(SDL2 REQUIRED CONFIG PATHS "Frameworks" NO_DEFAULT_PATH)
+find_package(SDL2_image REQUIRED CONFIG PATHS "Frameworks" NO_DEFAULT_PATH)
 
-FetchContent_Declare(
-    SDL2
-    GIT_REPOSITORY "https://github.com/libsdl-org/SDL.git"
-    GIT_TAG "release-2.28.5"
-    GIT_SHALLOW TRUE
-    GIT_PROGRESS TRUE
-)
+add_subdirectory("libs/pair_hash")
+add_subdirectory("libs/rect")
+add_subdirectory("libs/error")
+add_subdirectory("libs/fcblock")
+add_subdirectory("libs/player")
 
-FetchContent_MakeAvailable(SDL2)
+file(COPY "Resources" DESTINATION "flatcraft2.app/Contents")
+file(COPY "Frameworks" DESTINATION "flatcraft2.app/Contents")
 
-FetchContent_Declare(
-    SDL2_image
-    GIT_REPOSITORY "https://github.com/libsdl-org/SDL_image.git"
-    GIT_TAG "release-2.6.3"
-    GIT_SHALLOW TRUE
-    GIT_PROGRESS TRUE
-)
+set(APP_NAME "FlatCraft2")
 
-set(SDL2IMAGE_INSTALL FALSE)
+set(APPLE_GUI_BUNDLE_NAME ${APP_NAME})
+# set_source_files_properties("Resources/flatcraft2.icns" PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+# set(APPLE_GUI_ICON flatcraft2)
 
-FetchContent_MakeAvailable(SDL2_image)
-
-add_subdirectory(libs/pair_hash)
-add_subdirectory(libs/rect)
-add_subdirectory(libs/error)
-add_subdirectory(libs/fcblock)
-add_subdirectory(libs/player)
-
-set(flatcraft2_SOURCES
+add_executable(flatcraft2 MACOSX_BUNDLE
     "src/main.cpp"
     "src/state.h"
     "src/state.cpp"
     "src/event.cpp"
     "src/update.cpp"
-    "src/render.cpp"
+    "src/render.cpp")
+
+set_target_properties(flatcraft2 PROPERTIES
+    BUNDLE ON
+    MACOSX_BUNDLE_GUI_IDENTIFIER "com.fuguenot.flatcraft2"
+    MACOSX_BUNDLE_BUNDLE_NAME ${APP_NAME}
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION}
+    MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/cmake/AppleInfo.plist"
+    BUILD_RPATH "${CMAKE_SOURCE_DIR}/build/flatcraft2.app/Contents/Frameworks"
 )
 
-file(COPY resources DESTINATION .)
+install(DIRECTORY "${CMAKE_SOURCE_DIR}/Frameworks/SDL2.framework" DESTINATION "flatcraft2.app/Contents/Frameworks")
+install(DIRECTORY "${CMAKE_SOURCE_DIR}/Frameworks/SDL2_image.framework" DESTINATION "flatcraft2.app/Contents/Frameworks")
 
-add_executable(flatcraft2 ${flatcraft2_SOURCES})
-target_link_libraries(flatcraft2 PUBLIC player pair_hash)
+install(TARGETS flatcraft2 DESTINATION "${CMAKE_SOURCE_DIR}/build")
+
+target_link_libraries(flatcraft2 PRIVATE player pair_hash)
