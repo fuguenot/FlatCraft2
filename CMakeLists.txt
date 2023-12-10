@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION 3.27)
 
 project(flatcraft2 VERSION 0.1.0 LANGUAGES CXX)
 
@@ -39,6 +39,7 @@ set_target_properties(flatcraft2 PROPERTIES
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION}
     MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/cmake/AppleInfo.plist"
     BUILD_RPATH "${CMAKE_SOURCE_DIR}/build/flatcraft2.app/Contents/Frameworks"
+    INSTALL_RPATH "flatcraft2.app/Contents/Frameworks"
 )
 
 install(DIRECTORY "${CMAKE_SOURCE_DIR}/Frameworks/SDL2.framework" DESTINATION "flatcraft2.app/Contents/Frameworks")
