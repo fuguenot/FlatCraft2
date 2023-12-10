@@ -13,7 +13,7 @@ bool fc2::get_leg_rect(int x,
     if (moving) {
         if (facing == Player::Direction::LEFT) {
             outer_src->x = 123;
-            outer_src->y = 0;
+            outer_src->y = LEG_TEX_HEIGHT;
             outer_src->w = 91;
             outer_src->h = 91;
 
@@ -43,7 +43,7 @@ bool fc2::get_leg_rect(int x,
             outer_dst->h = 91;
 
             inner_src->x = 123;
-            inner_src->y = LEG_TEX_HEIGHT;
+            inner_src->y = 0;
             inner_src->w = 91;
             inner_src->h = 91;
 
@@ -55,7 +55,7 @@ bool fc2::get_leg_rect(int x,
         return true;
     } else {
         outer_src->x = 0;
-        outer_src->y = 0;
+        outer_src->y = facing == Player::Direction::RIGHT ? 0 : 96;
         outer_src->w = 32;
         outer_src->h = 96;
 
