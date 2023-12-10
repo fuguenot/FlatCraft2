@@ -1,7 +1,5 @@
 #pragma once
 
-#include <memory>
-
 #include "player.hpp"
 
 namespace fc2 {

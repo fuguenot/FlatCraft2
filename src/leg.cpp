@@ -1,8 +1,8 @@
-#include "arm.hpp"
+#include "leg.hpp"
 
-#define ARM_TEX_HEIGHT 96
+#define LEG_TEX_HEIGHT 96
 
-bool fc2::get_arm_rect(int x,
+bool fc2::get_leg_rect(int x,
                        int y,
                        bool moving,
                        Player::Direction facing,
@@ -17,18 +17,18 @@ bool fc2::get_arm_rect(int x,
             outer_src->w = 91;
             outer_src->h = 91;
 
-            outer_dst->x = x - 23;
-            outer_dst->y = y;
+            outer_dst->x = x - 13;
+            outer_dst->y = y + 86;
             outer_dst->w = 91;
             outer_dst->h = 91;
 
             inner_src->x = 32;
-            inner_src->y = ARM_TEX_HEIGHT;
+            inner_src->y = LEG_TEX_HEIGHT;
             inner_src->w = 91;
             inner_src->h = 91;
 
-            inner_dst->x = x - 68;
-            inner_dst->y = y;
+            inner_dst->x = x - 78;
+            inner_dst->y = y + 86;
             inner_dst->w = 91;
             inner_dst->h = 91;
         } else {
@@ -37,18 +37,18 @@ bool fc2::get_arm_rect(int x,
             outer_src->w = 91;
             outer_src->h = 91;
 
-            outer_dst->x = x - 68;
-            outer_dst->y = y;
+            outer_dst->x = x - 78;
+            outer_dst->y = y + 86;
             outer_dst->w = 91;
             outer_dst->h = 91;
 
             inner_src->x = 123;
-            inner_src->y = ARM_TEX_HEIGHT;
+            inner_src->y = LEG_TEX_HEIGHT;
             inner_src->w = 91;
             inner_src->h = 91;
 
-            inner_dst->x = x - 23;
-            inner_dst->y = y;
+            inner_dst->x = x - 13;
+            inner_dst->y = y + 86;
             inner_dst->w = 91;
             inner_dst->h = 91;
         }
@@ -60,7 +60,7 @@ bool fc2::get_arm_rect(int x,
         outer_src->h = 96;
 
         outer_dst->x = x - 16;
-        outer_dst->y = y;
+        outer_dst->y = y + 96;
         outer_dst->w = 32;
         outer_dst->h = 96;
 
