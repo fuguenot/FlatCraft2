@@ -4,9 +4,7 @@
 #define HEAD_TEX_HEIGHT   272
 #define HEAD_TEX_2_HEIGHT 544
 
-SDL_Rect player::Renderer::get_head_rect(int x,
-                                         int y,
-                                         SDL_Rect *rect) const noexcept {
+SDL_Rect player::Renderer::get_head_rect(SDL_Rect *rect) const noexcept {
     SDL_Rect src;
     if (head_angle > 82) {
         rect->x = x - 80;

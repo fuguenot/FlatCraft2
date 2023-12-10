@@ -1,8 +1,6 @@
 #include "renderer.h"
 
-SDL_Rect player::Renderer::get_torso_rect(int x,
-                                          int y,
-                                          SDL_Rect *rect) const noexcept {
+SDL_Rect player::Renderer::get_torso_rect(SDL_Rect *rect) const noexcept {
     rect->x = x - 16;
     rect->y = y;
     rect->w = 32;

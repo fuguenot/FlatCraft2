@@ -10,5 +10,5 @@ add_library(player STATIC
     "src/torso.cpp"
 )
 
-target_include_directories(player PUBLIC "include" ${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS} PRIVATE "include/player" "src")
-target_link_libraries(player PUBLIC ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} rect error)
+target_include_directories(player PUBLIC "include" PRIVATE "include/player" "src")
+target_link_libraries(player PUBLIC fcblock rect error)

@@ -2,9 +2,7 @@
 
 #define LEG_TEX_HEIGHT 96
 
-bool player::Renderer::get_leg_rect(int x,
-                                    int y,
-                                    SDL_Rect *inner_src,
+bool player::Renderer::get_leg_rect(SDL_Rect *inner_src,
                                     SDL_Rect *inner_dst,
                                     SDL_Rect *outer_src,
                                     SDL_Rect *outer_dst) const noexcept {

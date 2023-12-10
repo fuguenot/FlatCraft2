@@ -1,10 +1,10 @@
-#include "state.hpp"
+#include "state.h"
 
 #include <SDL_image.h>
 
 #include <error/error.h>
 
-fc2::State::State() {
+fc2::State::State() : player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0.5, 0) {
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
         throw error::Error(error::ErrorType::SDL_INIT_ERROR, SDL_GetError());
     if (!IMG_Init(IMG_INIT_PNG))
@@ -12,8 +12,8 @@ fc2::State::State() {
     if (!(win = SDL_CreateWindow("flatcraft2",
                                  SDL_WINDOWPOS_CENTERED,
                                  SDL_WINDOWPOS_CENTERED,
-                                 1000,
-                                 700,
+                                 SCREEN_WIDTH,
+                                 SCREEN_HEIGHT,
                                  0)))
         throw error::Error(error::ErrorType::SDL_WINDOW_ERROR, SDL_GetError());
     if (!(rend = SDL_CreateRenderer(
@@ -24,9 +24,15 @@ fc2::State::State() {
                            SDL_GetError());
 
     player.renderer.load_textures(rend);
+    if (!(spritesheet = IMG_LoadTexture(rend, "resources/spritesheet.png")))
+        throw error::Error(error::ErrorType::IMG_LOAD_ERROR, IMG_GetError());
+
+    blocks.insert_or_assign(std::pair{0, 0},
+                            block::Block{block::Block::Type::STONE});
 }
 
 fc2::State::~State() noexcept {
+    SDL_DestroyTexture(spritesheet);
     SDL_DestroyRenderer(rend);
     SDL_DestroyWindow(win);
 }

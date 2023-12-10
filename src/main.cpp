@@ -2,7 +2,7 @@
 
 #include <error/error.h>
 
-#include "state.hpp"
+#include "state.h"
 
 int main() {
     try {
