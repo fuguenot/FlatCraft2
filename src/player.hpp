@@ -12,6 +12,7 @@ namespace fc2 {
     private:
         SDL_Texture *head_tex;
         SDL_Texture *arm_tex;
+        SDL_Texture *torso_tex;
 
         double x = 0;
         double y = 0;
