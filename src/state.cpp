@@ -21,9 +21,15 @@ fc2::State::State() {
               -1,
               SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)))
         throw Error(ErrorType::SDL_RENDERER_ERROR, SDL_GetError());
+
+    player.load_textures(rend);
 }
 
 fc2::State::~State() noexcept {
     SDL_DestroyRenderer(rend);
     SDL_DestroyWindow(win);
+}
+
+bool fc2::State::is_running() const noexcept {
+    return running;
 }

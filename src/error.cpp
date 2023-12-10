@@ -20,6 +20,12 @@ std::string fc2::Error::to_string() noexcept {
     case ErrorType::SDL_RENDERER_ERROR:
         oss << "SDL_Renderer Init Error: " << details;
         break;
+    case ErrorType::IMG_LOAD_ERROR:
+        oss << "IMG_LoadTexture Error: " << details;
+        break;
+    case ErrorType::SDL_RENDERCOPY_ERROR:
+        oss << "SDL_RenderCopy Error: " << details;
+        break;
     default: break;
     }
 

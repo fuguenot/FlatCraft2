@@ -2,18 +2,22 @@
 
 #include <memory>
 
-#include <SDL.h>
+#include "player.hpp"
 
 namespace fc2 {
     class State {
         SDL_Window *win;
         SDL_Renderer *rend;
 
-    public:
         bool running = true;
 
+        Player player;
+
+    public:
         State();
         ~State() noexcept;
+
+        bool is_running() const noexcept;
 
         void handle_events();
         void update();

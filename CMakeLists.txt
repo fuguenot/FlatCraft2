@@ -6,7 +6,19 @@ include(FindPkgConfig)
 pkg_search_module(SDL2 REQUIRED SDL2)
 pkg_search_module(SDL2_IMAGE REQUIRED SDL2_image)
 
-set(flatcraft2_SOURCES src/main.cpp src/error.cpp src/state.cpp src/event.cpp src/update.cpp src/render.cpp)
+set(flatcraft2_SOURCES
+    src/main.cpp
+    src/error.cpp
+    src/state.cpp
+    src/event.cpp
+    src/update.cpp
+    src/render.cpp
+    src/rect.cpp
+    src/player.cpp
+    src/head.cpp
+)
+
+file(COPY resources DESTINATION .)
 
 add_executable(flatcraft2 ${flatcraft2_SOURCES})
 

@@ -7,7 +7,9 @@ namespace fc2 {
         SDL_INIT_ERROR,
         IMG_INIT_ERROR,
         SDL_WINDOW_ERROR,
-        SDL_RENDERER_ERROR
+        SDL_RENDERER_ERROR,
+        IMG_LOAD_ERROR,
+        SDL_RENDERCOPY_ERROR,
     };
 
     class Error {
