@@ -7,8 +7,8 @@
 SDL_Rect fc2::get_head_rect(int x,
                             int y,
                             short angle,
-                            fc2::Player::Direction facing,
-                            SDL_Rect *rect) {
+                            Player::Direction facing,
+                            SDL_Rect *rect) noexcept {
     SDL_Rect src;
     if (angle > 82) {
         rect->x = x - 80;

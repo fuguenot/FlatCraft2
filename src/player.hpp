@@ -11,6 +11,7 @@ namespace fc2 {
 
     private:
         SDL_Texture *head_tex;
+        SDL_Texture *arm_tex;
 
         double x = 0;
         double y = 0;
@@ -18,6 +19,8 @@ namespace fc2 {
         Direction facing = Direction::RIGHT;
         short angle = 0;
         bool moving = false;
+
+        void update_angle() noexcept;
 
     public:
         ~Player() noexcept;

@@ -16,6 +16,7 @@ set(flatcraft2_SOURCES
     src/rect.cpp
     src/player.cpp
     src/head.cpp
+    src/arm.cpp
 )
 
 file(COPY resources DESTINATION .)
