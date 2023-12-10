@@ -1,16 +1,9 @@
 #pragma once
 
-#include "player.hpp"
+#include <player/player.h>
 
 namespace fc2 {
     class State {
-        SDL_Window *win;
-        SDL_Renderer *rend;
-
-        bool running = true;
-
-        Player player;
-
     public:
         State();
         ~State() noexcept;
@@ -20,5 +13,13 @@ namespace fc2 {
         void handle_events();
         void update();
         void render();
+
+    private:
+        SDL_Window *win;
+        SDL_Renderer *rend;
+
+        bool running = true;
+
+        player::Player player;
     };
 }  // namespace fc2

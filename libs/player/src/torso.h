@@ -1,8 +1,8 @@
 #pragma once
 
-#include "player.hpp"
+#include "player.h"
 
-namespace fc2 {
+namespace player {
     SDL_Rect get_torso_rect(int x,
                             int y,
                             Player::Direction facing,

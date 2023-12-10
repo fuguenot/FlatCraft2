@@ -1,15 +1,15 @@
-#include "playerrender/leg.hpp"
+#include "leg.h"
 
 #define LEG_TEX_HEIGHT 96
 
-bool fc2::get_leg_rect(int x,
-                       int y,
-                       bool moving,
-                       Player::Direction facing,
-                       SDL_Rect *inner_src,
-                       SDL_Rect *inner_dst,
-                       SDL_Rect *outer_src,
-                       SDL_Rect *outer_dst) noexcept {
+bool player::get_leg_rect(int x,
+                          int y,
+                          bool moving,
+                          Player::Direction facing,
+                          SDL_Rect *inner_src,
+                          SDL_Rect *inner_dst,
+                          SDL_Rect *outer_src,
+                          SDL_Rect *outer_dst) noexcept {
     if (moving) {
         if (facing == Player::Direction::LEFT) {
             outer_src->x = 123;

@@ -1,6 +1,7 @@
 #include <iostream>
 
-#include "error.hpp"
+#include <error/error.h>
+
 #include "state.hpp"
 
 int main() {
@@ -13,7 +14,7 @@ int main() {
             state.render();
         }
 
-    } catch (fc2::Error &e) {
+    } catch (error::Error &e) {
         std::cerr << e.to_string() << std::endl;
         std::exit(1);
     }

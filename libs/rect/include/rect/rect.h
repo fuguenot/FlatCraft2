@@ -1,9 +1,7 @@
 #pragma once
 
-namespace fc2 {
+namespace rect {
     class Rectangle {
-        double x, y, w, h;
-
     public:
         Rectangle(double x, double y, double w, double h) noexcept;
 
@@ -11,5 +9,8 @@ namespace fc2 {
                                   const Rectangle &r2) noexcept;
 
         void move(double dx, double dy) noexcept;
+
+    private:
+        double x, y, w, h;
     };
-}  // namespace fc2
+}  // namespace rect

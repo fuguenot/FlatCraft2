@@ -1,14 +1,14 @@
-#include "playerrender/head.hpp"
+#include "head.h"
 
 #define HEAD_TEX_WIDTH    962
 #define HEAD_TEX_HEIGHT   272
 #define HEAD_TEX_2_HEIGHT 544
 
-SDL_Rect fc2::get_head_rect(int x,
-                            int y,
-                            short angle,
-                            Player::Direction facing,
-                            SDL_Rect *rect) noexcept {
+SDL_Rect player::get_head_rect(int x,
+                               int y,
+                               std::int16_t angle,
+                               Player::Direction facing,
+                               SDL_Rect *rect) noexcept {
     SDL_Rect src;
     if (angle > 82) {
         rect->x = x - 80;
@@ -89,7 +89,7 @@ SDL_Rect fc2::get_head_rect(int x,
         rect->h = 96;
         src = {249, HEAD_TEX_HEIGHT - 96, 96, 96};
     }
-    if (facing == fc2::Player::Direction::LEFT) {
+    if (facing == Player::Direction::LEFT) {
         rect->x -= x;
         rect->x = x - rect->x - rect->w;
         src.x = HEAD_TEX_WIDTH - src.x - src.w;

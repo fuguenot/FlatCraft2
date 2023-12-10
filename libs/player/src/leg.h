@@ -1,9 +1,9 @@
 #pragma once
 
-#include "player.hpp"
+#include "player.h"
 
-namespace fc2 {
-    bool get_arm_rect(int x,
+namespace player {
+    bool get_leg_rect(int x,
                       int y,
                       bool moving,
                       Player::Direction facing,

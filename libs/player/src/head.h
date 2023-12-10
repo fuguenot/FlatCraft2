@@ -1,11 +1,11 @@
 #pragma once
 
-#include "player.hpp"
+#include "player.h"
 
-namespace fc2 {
+namespace player {
     SDL_Rect get_head_rect(int x,
                            int y,
-                           short angle,
+                           std::int16_t angle,
                            Player::Direction facing,
                            SDL_Rect *rect) noexcept;
 }

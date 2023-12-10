@@ -2,8 +2,8 @@
 
 #include <string>
 
-namespace fc2 {
-    enum class ErrorType {
+namespace error {
+    enum class ErrorType : std::uint8_t {
         SDL_INIT_ERROR,
         IMG_INIT_ERROR,
         SDL_WINDOW_ERROR,
@@ -20,4 +20,4 @@ namespace fc2 {
         Error(ErrorType type, const std::string &details) noexcept;
         std::string to_string() noexcept;
     };
-}  // namespace fc2
+}  // namespace error

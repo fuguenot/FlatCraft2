@@ -1,13 +1,13 @@
-#include "error.hpp"
+#include "error.h"
 
 #include <sstream>
 
-fc2::Error::Error(fc2::ErrorType type, const std::string &details) noexcept
+error::Error::Error(ErrorType type, const std::string &details) noexcept
     : type(type),
       details(details) {
 }
 
-std::string fc2::Error::to_string() noexcept {
+std::string error::Error::to_string() noexcept {
     std::ostringstream oss;
     switch (type) {
     case ErrorType::SDL_INIT_ERROR: oss << "SDL Init Error: " << details; break;
