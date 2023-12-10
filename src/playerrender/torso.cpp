@@ -1,4 +1,4 @@
-#include "torso.hpp"
+#include "playerrender/torso.hpp"
 
 SDL_Rect fc2::get_torso_rect(int x,
                              int y,

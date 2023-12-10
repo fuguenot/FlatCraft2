@@ -5,18 +5,19 @@
 
 #include <SDL_image.h>
 
-#include "arm.hpp"
 #include "error.hpp"
-#include "head.hpp"
-#include "torso.hpp"
-#include "leg.hpp"
+
+#include "playerrender/arm.hpp"
+#include "playerrender/head.hpp"
+#include "playerrender/torso.hpp"
+#include "playerrender/leg.hpp"
 
 #define PI 3.14159265
 
 void fc2::Player::load_textures(SDL_Renderer *rend) {
     if (!(head_tex = IMG_LoadTexture(rend, "resources/steve_head.png")))
         throw Error(ErrorType::IMG_LOAD_ERROR, IMG_GetError());
-    if (!(arm_tex = IMG_LoadTexture(rend, "resources/steve_arm.png")))
+    if (!(arm_tex = IMG_LoadTexture(rend, "resources/steve_arms.png")))
         throw Error(ErrorType::IMG_LOAD_ERROR, IMG_GetError());
     if (!(torso_tex = IMG_LoadTexture(rend, "resources/steve_torso.png")))
         throw Error(ErrorType::IMG_LOAD_ERROR, IMG_GetError());

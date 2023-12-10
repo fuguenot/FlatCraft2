@@ -15,16 +15,16 @@ set(flatcraft2_SOURCES
     src/render.cpp
     src/rect.cpp
     src/player.cpp
-    src/head.cpp
-    src/arm.cpp
-    src/torso.cpp
-    src/leg.cpp
+    src/playerrender/head.cpp
+    src/playerrender/arm.cpp
+    src/playerrender/torso.cpp
+    src/playerrender/leg.cpp
 )
 
 file(COPY resources DESTINATION .)
 
 add_executable(flatcraft2 ${flatcraft2_SOURCES})
 
-target_include_directories(flatcraft2 PUBLIC ${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
+target_include_directories(flatcraft2 PUBLIC ${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS} PRIVATE src)
 
 target_link_libraries(flatcraft2 PUBLIC ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
