@@ -6,7 +6,7 @@ void fc2::State::render() {
     SDL_SetRenderDrawColor(rend, SKY_COLOR);
     SDL_RenderClear(rend);
 
-    player.render(rend);
+    player.renderer.render(rend);
 
     SDL_RenderPresent(rend);
 }

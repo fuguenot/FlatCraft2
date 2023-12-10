@@ -13,10 +13,8 @@ void fc2::State::handle_events() {
 
         const uint8_t *state = SDL_GetKeyboardState(NULL);
         if (state[SDL_SCANCODE_A])
-            player.move(player::Player::Direction::LEFT);
+            player.move(player::Direction::LEFT);
         else if (state[SDL_SCANCODE_D])
-            player.move(player::Player::Direction::RIGHT);
-
-        if (!player.is_moving()) player.update_angle();
+            player.move(player::Direction::RIGHT);
     }
 }

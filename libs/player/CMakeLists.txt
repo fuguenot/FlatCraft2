@@ -1,13 +1,12 @@
 add_library(player STATIC
     "include/player/player.h"
+    "include/player/renderer.h"
+    "include/player/direction.h"
     "src/player.cpp"
-    "src/arm.h"
+    "src/renderer.cpp"
     "src/arm.cpp"
-    "src/head.h"
     "src/head.cpp"
-    "src/leg.h"
     "src/leg.cpp"
-    "src/torso.h"
     "src/torso.cpp"
 )
 

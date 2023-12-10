@@ -23,7 +23,7 @@ fc2::State::State() {
         throw error::Error(error::ErrorType::SDL_RENDERER_ERROR,
                            SDL_GetError());
 
-    player.load_textures(rend);
+    player.renderer.load_textures(rend);
 }
 
 fc2::State::~State() noexcept {

@@ -1,17 +1,15 @@
-#include "arm.h"
+#include "renderer.h"
 
 #define ARM_TEX_HEIGHT 96
 
-bool player::get_arm_rect(int x,
-                          int y,
-                          bool moving,
-                          Player::Direction facing,
-                          SDL_Rect *inner_src,
-                          SDL_Rect *inner_dst,
-                          SDL_Rect *outer_src,
-                          SDL_Rect *outer_dst) noexcept {
+bool player::Renderer::get_arm_rect(int x,
+                                    int y,
+                                    SDL_Rect *inner_src,
+                                    SDL_Rect *inner_dst,
+                                    SDL_Rect *outer_src,
+                                    SDL_Rect *outer_dst) const noexcept {
     if (moving) {
-        if (facing == Player::Direction::LEFT) {
+        if (facing == Direction::LEFT) {
             outer_src->x = 123;
             outer_src->y = 0;
             outer_src->w = 91;

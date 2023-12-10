@@ -1,17 +1,15 @@
-#include "leg.h"
+#include "renderer.h"
 
 #define LEG_TEX_HEIGHT 96
 
-bool player::get_leg_rect(int x,
-                          int y,
-                          bool moving,
-                          Player::Direction facing,
-                          SDL_Rect *inner_src,
-                          SDL_Rect *inner_dst,
-                          SDL_Rect *outer_src,
-                          SDL_Rect *outer_dst) noexcept {
+bool player::Renderer::get_leg_rect(int x,
+                                    int y,
+                                    SDL_Rect *inner_src,
+                                    SDL_Rect *inner_dst,
+                                    SDL_Rect *outer_src,
+                                    SDL_Rect *outer_dst) const noexcept {
     if (moving) {
-        if (facing == Player::Direction::LEFT) {
+        if (facing == Direction::LEFT) {
             outer_src->x = 123;
             outer_src->y = LEG_TEX_HEIGHT;
             outer_src->w = 91;
@@ -55,7 +53,7 @@ bool player::get_leg_rect(int x,
         return true;
     } else {
         outer_src->x = 0;
-        outer_src->y = facing == Player::Direction::RIGHT ? 0 : 96;
+        outer_src->y = facing == Direction::LEFT ? 96 : 0;
         outer_src->w = 32;
         outer_src->h = 96;
 
