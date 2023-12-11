@@ -14,7 +14,7 @@ void fc2::State::render() {
                      static_cast<std::int16_t>((pos.first - px) * 16
                                                * block::Block::SCALE)
                          + SCREEN_WIDTH / 2,
-                     static_cast<std::int16_t>((pos.second - py) * 16
+                     static_cast<std::int16_t>((py - pos.second) * 16
                                                * block::Block::SCALE)
                          + SCREEN_HEIGHT / 2);
     }
